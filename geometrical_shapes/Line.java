@@ -1,6 +1,7 @@
 package geometrical_shapes;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class Line implements Drawable {
     private final Point start;
@@ -13,8 +14,10 @@ public class Line implements Drawable {
         this.color = color;
     }
 
-    public Line random(int maxX, int maxY) {
-        return new Line(Point.random(maxX, maxY), Point.random(maxX, maxY), this.color);
+    public static Line random(int maxX, int maxY) {
+        Random rand = new Random();
+        Color color = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+        return new Line(Point.random(maxX, maxY), Point.random(maxX, maxY), color);
     }
 
     @Override
