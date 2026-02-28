@@ -15,7 +15,6 @@ public class Image implements Displayable {
         this.width = width;
         this.height = height;
         this.bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        // Black background
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 bufferedImage.setRGB(x, y, Color.BLACK.getRGB());
