@@ -1,24 +1,25 @@
 package geometrical_shapes;
 
 import java.awt.Color;
-import java.util.Random;
 
 public class Line implements Drawable {
     private final Point start;
     private final Point end;
+    private final Color color;
 
-    public Line(Point start, Point end) {
+    public Line(Point start, Point end, Color color) {
         this.start = start;
         this.end = end;
+        this.color = color;
     }
 
-    public static Line random(int maxX, int maxY) {
-        return new Line(Point.random(maxX, maxY), Point.random(maxX, maxY));
+    public Line random(int maxX, int maxY) {
+        return new Line(Point.random(maxX, maxY), Point.random(maxX, maxY), this.color);
     }
 
     @Override
     public void draw(Displayable displayable) {
-        Color color = this.getColor();
+        Color color = this.color;
         double x1 = start.x;
         double y1 = start.y;
         double x2 = end.x;
@@ -35,11 +36,5 @@ public class Line implements Drawable {
             x += xIncrement;
             y += yIncrement;
         }
-    }
-
-    @Override
-    public Color getColor() {
-        Random rand = new Random();
-        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 }

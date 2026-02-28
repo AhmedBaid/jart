@@ -7,28 +7,21 @@ public class Triangle implements Drawable {
     private final Point a;
     private final Point b;
     private final Point c;
-    private final Color color;
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.color = randomColor();
     }
 
     @Override
     public void draw(Displayable displayable) {
-        // TODO: draw three lines connecting the three vertices
-        // Use Bresenham's line algorithm for each edge: a-b, b-c, c-a
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
-    }
-
-    private static Color randomColor() {
-        Random rand = new Random();
-        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+        Color color = this.getColor();
+        Line line1 = new Line(this.a, this.b, color);
+        Line line2 = new Line(this.b, this.c, color);
+        Line line3 = new Line(this.c, this.a, color);
+        line1.draw(displayable);
+        line2.draw(displayable);
+        line3.draw(displayable);
     }
 }

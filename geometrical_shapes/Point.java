@@ -1,6 +1,5 @@
 package geometrical_shapes;
 
-import java.awt.Color;
 import java.util.Random;
 
 public class Point implements Drawable {
@@ -20,11 +19,5 @@ public class Point implements Drawable {
     @Override
     public void draw(Displayable displayable) {
         displayable.display(x, y, this.getColor());
-    }
-
-    @Override
-    public Color getColor() {
-        Random rand = new Random();
-        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 }

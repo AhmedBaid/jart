@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import geometrical_shapes.*;
 
 public class Main {
@@ -7,7 +9,7 @@ public class Main {
             Point randomPoint = Point.random(image.getWidth(), image.getHeight());
             randomPoint.draw(image);
         }
-        Line line = new Line(Point.random(image.getWidth(), image.getHeight()), Point.random(image.getWidth(), image.getHeight()));
+        Line line = new Line(Point.random(image.getWidth(), image.getHeight()), Point.random(image.getWidth(), image.getHeight()), new Color(255, 0, 0));
         line.draw(image);
         Rectangle rectangle = new Rectangle(new Point(50, 50), new Point(300, 200));
         rectangle.draw(image);

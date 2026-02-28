@@ -6,12 +6,10 @@ import java.util.Random;
 public class Circle implements Drawable {
     private final Point center;
     private final int radius;
-    private final Color color;
 
     public Circle(Point center, int radius) {
         this.center = center;
         this.radius = radius;
-        this.color = randomColor();
     }
 
     // Random factory method: creates a circle with random center and radius within bounds
@@ -26,15 +24,5 @@ public class Circle implements Drawable {
     public void draw(Displayable displayable) {
         // TODO: implement Bresenham's circle algorithm (midpoint circle algorithm)
         // Draw pixels around center at given radius using displayable.display(x, y, color)
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
-    }
-
-    private static Color randomColor() {
-        Random rand = new Random();
-        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 }
