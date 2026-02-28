@@ -6,15 +6,12 @@ import java.util.Random;
 public class Point implements Drawable {
     public int x;
     public int y;
-    private Color color;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = Color.WHITE;
     }
 
-    // Random factory method: creates a point within given bounds
     public static Point random(int maxX, int maxY) {
         Random rand = new Random();
         return new Point(rand.nextInt(maxX), rand.nextInt(maxY));
@@ -22,11 +19,12 @@ public class Point implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-        displayable.display(x, y, color);
+        displayable.display(x, y, this.getColor());
     }
 
     @Override
     public Color getColor() {
-        return color;
+        Random rand = new Random();
+        return new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 }
