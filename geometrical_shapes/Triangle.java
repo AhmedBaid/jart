@@ -13,6 +13,10 @@ public class Triangle implements Drawable {
         this.c = c;
     }
 
+    public static Triangle random(int maxX, int maxY) {
+        return new Triangle(Point.random(maxX, maxY), Point.random(maxX, maxY), Point.random(maxX, maxY));
+    }
+
     @Override
     public void draw(Displayable displayable) {
         Color color = this.getColor();
