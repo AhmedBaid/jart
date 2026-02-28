@@ -19,7 +19,7 @@ public class Rectangle implements Drawable {
         int x2 = rand.nextInt(maxX);
         int y2 = rand.nextInt(maxY);
         return new Rectangle(new Point(Math.min(x1, x2), Math.min(y1, y2)),
-                             new Point(Math.max(x1, x2), Math.max(y1, y2)));
+                new Point(Math.max(x1, x2), Math.max(y1, y2)));
     }
 
     @Override
