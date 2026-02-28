@@ -24,32 +24,26 @@ public class Circle implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-        // Bresenham's circle algorithm (midpoint circle algorithm)
-        // Starts at the top of the circle (x=radius, y=0) and steps through
-        // one octant, mirroring the point across all 8 symmetrical octants.
-        int cx = center.x;
-        int cy = center.y;
-        int x = radius;
-        int y = 0;
-        int err = 0; // decision parameter: tracks deviation from true circle
 
-        while (x >= y) {
-            // Mirror the current (x, y) offset across all 8 octants
-            displayable.display(cx + x, cy + y, color); // octant 1
-            displayable.display(cx + y, cy + x, color); // octant 2
-            displayable.display(cx - y, cy + x, color); // octant 3
-            displayable.display(cx - x, cy + y, color); // octant 4
-            displayable.display(cx - x, cy - y, color); // octant 5
-            displayable.display(cx - y, cy - x, color); // octant 6
-            displayable.display(cx + y, cy - x, color); // octant 7
-            displayable.display(cx + x, cy - y, color); // octant 8
+        double radiusF = (double) radius;
+        double centerX = (double) center.x;
+        double centerY = (double) center.y;
 
-            y++;                      // always step along y
-            err += 2 * y + 1;        // update error for new y (dy² term)
-            if (err > 0) {
-                x--;                  // step x inward when error exceeds threshold
-                err -= 2 * x + 1;    // correct error for new x (dx² term)
-            }
+        double area = Math.PI * Math.pow(radiusF, 2);
+        double step = 360.0 / area;
+
+        double angleDeg = 0.0;
+
+        while (angleDeg <= 360.0) {
+
+            double angleRad = Math.toRadians(angleDeg);
+
+            int x = (int) Math.round(radiusF * Math.cos(angleRad) + centerX);
+            int y = (int) Math.round(radiusF * Math.sin(angleRad) + centerY);
+
+            displayable.display(x, y, color);
+
+            angleDeg += step;
         }
     }
 
