@@ -12,7 +12,6 @@ public class Circle implements Drawable {
         this.radius = radius;
     }
 
-    // Random factory method: creates a circle with random center and radius within bounds
     public static Circle random(int maxX, int maxY) {
         Random rand = new Random();
         int radius = rand.nextInt(Math.min(maxX, maxY) / 2) + 1;
@@ -22,7 +21,6 @@ public class Circle implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-        // TODO: implement Bresenham's circle algorithm (midpoint circle algorithm)
-        // Draw pixels around center at given radius using displayable.display(x, y, color)
+        
     }
 }
