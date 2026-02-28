@@ -1,6 +1,5 @@
-import java.awt.Color;
-
 import geometrical_shapes.*;
+import java.awt.Color;
 
 public class Main {
     public static void main(String[] args) {
