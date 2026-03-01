@@ -6,25 +6,22 @@ import java.util.Random;
 public class Circle implements Drawable {
     private Point center;
     private int radius;
-    private Color color;
 
     public Circle(Point center, int radius) {
         this.center = center;
         this.radius = radius;
-        Random rand = new Random();
-        this.color = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
     }
 
     public static Circle random(int width, int height) {
         Random rand = new Random();
-        int radius = rand.nextInt(Math.min(width, height) / 8) + 10;
+        int radius = rand.nextInt(250) + 50;
         Point center = new Point(rand.nextInt(width), rand.nextInt(height));
         return new Circle(center, radius);
     }
 
     @Override
     public void draw(Displayable displayable) {
-
+        Color color = getColor();
         double radiusF = (double) radius;
         double centerX = (double) center.x;
         double centerY = (double) center.y;
@@ -45,10 +42,5 @@ public class Circle implements Drawable {
 
             angleDeg += step;
         }
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
     }
 }
